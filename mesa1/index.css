@@ -628,23 +628,18 @@ button#ver-galeria:hover::after {
 .arrow {
     background: none;
     border: none;
-    font-size: 1.2em; /* Tamaño de la flecha */
+    font-size: 1.5em; /* Tamaño de la flecha */
     cursor: pointer;
     color: #00456a;/* Color claro y transparente */
-    padding: 5px;
+    padding-bottom: 15px;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra sutil para efecto de profundidad */
     transition: all 0.3s ease; /* Efecto suave en los cambios */
 }
 
 .arrow:hover {
     color: #ff7300; /* Color claro del texto */
-    background: none; /* No mostrar el fondo al hacer hover */
     text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6); /* Sombra más difusa para mejorar visibilidad */
     transform: scale(1.2); /* Pequeño efecto de zoom */
-}
-
-.arrow:focus {
-    outline: none; /* Quita el borde predeterminado */
 }
 
 
