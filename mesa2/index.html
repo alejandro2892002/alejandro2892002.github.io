@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delicias Villa Mesa 2</title>
+    <link rel="stylesheet" href="index.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+
+    <audio id="audio" autoplay>
+        <source src="bienvenida.mp3" type="audio/mp3">
+        Tu navegador no soporta el formato de audio.
+    </audio>
+
+    <header>
+        <h1>Delicias Villa</h1>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    <div class="bubble"></div>
+    </header>
+    <main>
+        <section class="menu">
+            <h2>Menú</h2>
+            <div class="menu-category active" id="mariscos">
+                <h3>
+                    Mariscos
+                    <span>
+                        <button class="arrow" onclick="showPrevious()">⬅</button>
+                        <button class="arrow" onclick="showNext()">➡</button>
+                    </span>
+                </h3>
+                <br>
+                <ul>
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/ceviche1.jpg', '../img-productos/ceviche2.jpg', '../img-productos/ceviche3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="200">Ceviche de camarón
+                    </li>
+                    <br>
+
+                    <button id="ver-galeria"  onclick="openCarousel(['../img-productos/langosta1.jpg', '../img-productos/langosta2.jpg', '../img-productos/langosta3.webp'])">GALERIA</button>
+                    <br>
+                    <li data-price="250">Langosta al ajo</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/tacos1.JPG', '../img-productos/tacos2.jpeg', '../img-productos/tacos3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="180">Tacos de pescado</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/camarones1.webp', '../img-productos/camarones2.webp', '../img-productos/camarones3.webp'])">GALERIA</button>
+                    <br>
+                    <li data-price="220">Camarones empanizados</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/coctel1.webp', '../img-productos/coctel2.webp', '../img-productos/coctel3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="150">Coctel de camarón</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/almejas1.jpg', '../img-productos/almejas2.jpg', '../img-productos/almejas3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="170">Almejas rellenas</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/pescadoza1.jpg', '../img-productos/pescadoza2.jpg', '../img-productos/pescadoza3.webp'])">GALERIA</button>
+                    <br>
+                    <li data-price="190">Pescado zarandeado</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/filete1.webp', '../img-productos/filete2.webp', '../img-productos/filete3.webp'])">GALERIA</button>
+                    <br>
+                    <li data-price="160">Filete empapelado</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/pulpo1.jpg', '../img-productos/pulpo2.jpg', '../img-productos/pulpo3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="240">Pulpo a la gallega</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/mariscada1.jpg', '../img-productos/mariscada2.webp', '../img-productos/mariscada3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="260">Mariscada especial</li>
+                    <br>
+                </ul>
+            </div>
+
+            <div class="menu-category hidden" id="desayunos">
+                <h3>
+                    Desayunos
+                    <span>
+                        <button class="arrow" onclick="showPrevious()">⬅</button>
+                        <button class="arrow" onclick="showNext()">➡</button>
+                    </span>
+                </h3>
+                <br>
+
+                <ul>
+                    <button id="ver-galeria"  onclick="openCarousel(['../img-productos/huevos1.jpg', '../img-productos/huevos2.jpg', '../img-productos/huevos3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="80">Huevos rancheros</li>
+                    <br>
+
+                    <button id="ver-galeria"  onclick="openCarousel(['../img-productos/chilaquilesv1.jpeg', '../img-productos/chilaquilesv2.jpg', '../img-productos/chilaquilesv3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="100">Chilaquiles verdes</li>
+                    <br>
+                    
+                    <button id="ver-galeria"  onclick="openCarousel(['../img-productos/hotcakes1.webp', '../img-productos/hotcakes2.webp', '../img-productos/hotcakes3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="120">Hot cakes</li>
+                    <br>
+
+                    <button id="ver-galeria"  onclick="openCarousel(['../img-productos/molletes1.jpg', '../img-productos/molletes2.jpg', '../img-productos/molletes3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="110">Molletes</li>
+                    <br>
+
+                    <button id="ver-galeria"  onclick="openCarousel(['../img-productos/omelet1.jpg', '../img-productos/omelet2.webp', '../img-productos/omelet3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="90">Omelette</li>
+                    <br>
+
+                </ul>
+            </div>
+            <div class="menu-category hidden" id="bebidas-sin">
+                <h3>
+                    Bebidas sin Alcohol
+                    <span>
+                        <button class="arrow" onclick="showPrevious()">⬅</button>
+                        <button class="arrow" onclick="showNext()">➡</button>
+                    </span>
+                </h3>
+                <br>
+
+                <ul>
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/aguahorchata1.png', '../img-productos/aguahorchata2.jpg', '../img-productos/aguahorchata3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="50">Agua de horchata</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/refresco1.webp', '../img-productos/refresco2.jpg', '../img-productos/refresco3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="40">Refresco</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/cafe1.webp', '../img-productos/cafe2.jpg', '../img-productos/cafe3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="45">Café</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/aguaembotellada1.jpg', '../img-productos/aguaembotellada2.jpg', '../img-productos/aguaembotellada3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="30">Agua embotellada</li>
+                    <br>
+                </ul>
+            </div>
+            <div class="menu-category hidden" id="bebidas-con">
+                <h3>
+                    Bebidas con Alcohol
+                    <span>
+                        <button class="arrow" onclick="showPrevious()">⬅</button>
+                        <button class="arrow" onclick="showNext()">➡</button>
+                    </span>
+                </h3>
+                <br>
+
+                <ul>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/cerveza1.webp', '../img-productos/cerveza2.webp', '../img-productos/cerveza3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="70">Cerveza</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/margarita1.jpg', '../img-productos/margarita2.webp', '../img-productos/margarita3.webp'])">GALERIA</button>
+                    <br>
+                    <li data-price="120">Margarita</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/piña1.jpg', '../img-productos/piña2.jpg', '../img-productos/piña3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="90">Piña colada</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/tequila1.jpg', '../img-productos/tequila2.jpg', '../img-productos/tequila3.jpeg'])">GALERIA</button>
+                    <br>
+                    <li data-price="110">Tequila</li>
+                    <br>
+
+                    <button id="ver-galeria" onclick="openCarousel(['../img-productos/mezcal1.jpg', '../img-productos/mezcal2.jpg', '../img-productos/mezcal3.jpg'])">GALERIA</button>
+                    <br>
+                    <li data-price="130">Mezcal</li>
+                    <br>
+                </ul>
+            </div>
+        </section>
+        <section class="order">
+            <h2 id="ordertext">Orden</h2>
+
+    <!-- Número de mesa -->
+    <p id="nmesa">Número de mesa: <span 
+        id="table-number">2</span></p>
+            <ul id="order-list"></ul>
+            <div id="total">Total: $0</div>
+
+            <div id="order-section">
+                <ul id="order-list"></ul>
+                <div style="text-align: center;">
+                    <button id="place-order">Realizar Orden</button>
+                </div>
+            </div>
+    
+            <!-- Popup de confirmación -->
+            <div id="order-confirmation-popup" class="hidden">
+                <div class="popup-content">
+                    <p>¡Orden realizada con éxito! En un momento llegará su pedido.</p>
+                    <button id="confirm-order">Aceptar</button>
+                </div>
+            </div>
+            
+        </section>
+    </main>
+    <div id="popup" class="popup hidden">
+        <div class="popup-content">
+            <p id="popup-message"></p>
+            <div class="popup-buttons">
+                <button id="continue">Continuar</button>
+                <button id="cancel">Cancelar</button>
+            </div>
+        </div>
+    </div>
+    <div id="quantity-popup" class="popup hidden">
+        <div class="popup-content">
+            <p>¿Cuántas unidades deseas?</p>
+            <input type="number" id="quantity" min="1" value="1">
+            <button id="add-to-order">Agregar a la orden</button>
+        </div>
+    </div>
+    <div id="delete-popup" class="popup hidden">
+        <div class="popup-content">
+            <p>¿Estás seguro de que deseas eliminar este producto?</p>
+            <div class="popup-buttons">
+                <button id="confirm-delete">Aceptar</button>
+                <button id="cancel-delete">Cancelar</button>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="carousel" id="carousel">
+        <div class="carousel-content">
+            <button class="close-button" onclick="closeCarousel()">&times;</button>
+            <div class="carousel-images" id="carousel-images">
+                <!-- Las imágenes se cargarán dinámicamente aquí -->
+            </div>
+            <div class="carousel-buttons">
+                <button onclick="prevImage()">Anterior</button>
+                <button onclick="nextImage()">Siguiente</button>
+            </div>
+        </div>
+    </div>
+
+    
+    <script src="index.js"></script>
+
+    <script>
+        // JavaScript para asegurar que el audio se reproduzca automáticamente al cargar la página
+        window.onload = function() {
+            var audio = document.getElementById('audio');
+            audio.play(); // Reproduce el audio
+        };
+    </script>
+</body>
+</html>

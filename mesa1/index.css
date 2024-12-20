@@ -1,0 +1,726 @@
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(45deg, #48CAE4 50%, #0077B6 100%);
+    background-size: 200% 200%; /* Asegura que el degradado se extienda más allá */
+    animation: gradientAnimation 8s ease infinite; /* Animación continua */
+    overflow-x: hidden; /* Para evitar scroll horizontal */
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('https://www.transparenttextures.com/patterns/bubbles.png');
+    opacity: 0.1; /* Suaviza el efecto */
+    z-index: -1;
+}
+
+/* Animación para el movimiento del degradado de la esquina superior izquierda a la esquina inferior derecha */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 0%; } /* Empieza desde la esquina superior izquierda */
+    50% { background-position: 100% 100%; } /* Se mueve hacia la esquina inferior derecha */
+    100% { background-position: 0% 0%; } /* Vuelve a la esquina superior izquierda */
+}
+
+
+
+
+header {
+    background: linear-gradient(90deg, #0077B6, #48CAE4);
+    color: #F8F9FA; /* Contraste con el fondo */
+    text-align: center;
+    padding: 1rem 0; /* Altura original */
+    position: relative; /* Necesario para las burbujas */
+    overflow: hidden; /* Oculta las burbujas fuera del área */
+    height: auto; /* Tamaño se adapta al contenido */
+}
+
+/* Burbujas principales */
+header::before,
+header::after {
+    content: '';
+    position: absolute;
+    bottom: -30px; /* Inician fuera del área */
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3); /* Color semitransparente */
+    border-radius: 50%; /* Forma circular */
+    animation: bubble-rise 6s infinite ease-in-out;
+    z-index: 1;
+}
+
+header::before {
+    left: 25%; /* Posición horizontal */
+    animation-delay: 1s; /* Retraso */
+}
+
+header::after {
+    left: 75%; /* Otra posición */
+    animation-delay: 3s;
+}
+
+/* Más burbujas */
+header .bubble {
+    position: absolute;
+    bottom: -30px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    animation: bubble-rise 1.5s infinite ease-in-out;
+    z-index: 1;
+}
+
+/* Tamaños y posiciones aleatorias */
+header .bubble:nth-child(1) {
+    width: 10px; height: 10px;
+    left: 10%;
+    animation-delay: 0s;
+}
+header .bubble:nth-child(2) {
+    width: 15px; height: 15px;
+    left: 30%;
+    animation-delay: 1.5s;
+}
+header .bubble:nth-child(3) {
+    width: 20px; height: 20px;
+    left: 50%;
+    animation-delay: 2s;
+}
+header .bubble:nth-child(4) {
+    width: 25px; height: 25px;
+    left: 70%;
+    animation-delay: 3s;
+}
+header .bubble:nth-child(5) {
+    width: 12px; height: 12px;
+    left: 90%;
+    animation-delay: 0.5s;
+}
+
+/* Animación */
+@keyframes bubble-rise {
+    0% {
+        transform: translateY(0) scale(1);
+        opacity: 1;
+    }
+    50% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(-150px) scale(0.7); /* Suben menos alto */
+        opacity: 0;
+    }
+}
+
+
+
+/* ESTILOS H1 */
+h1 {
+    font-family: 'Poppins', sans-serif; /* Usamos una fuente moderna y limpia */
+    font-size: 3rem; /* Aumentamos el tamaño de la fuente */
+    font-weight: 700; /* Hacemos el texto más grueso para mayor impacto */
+    color: #ffffff; /* Color de texto blanco */
+    text-align: center; /* Centramos el título */
+    text-transform: uppercase; /* Transformamos el texto a mayúsculas para mayor énfasis */
+    letter-spacing: 3px; /* Espaciado entre letras para mayor legibilidad */
+    margin-top: 2rem; /* Espacio arriba del título */
+    margin-bottom: 1rem; /* Espacio debajo del título */
+    position: relative; /* Posicionamos el texto en relación a su contenedor */
+    z-index: 1; /* Asegura que el texto se muestre encima de otros elementos */
+    transition: color 0.3s ease, transform 0.3s ease, background-color 0.3s ease; /* Agregamos una transición suave */
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.2), -3px -3px 5px rgba(0, 0, 0, 0.1); /* Sombra de texto para un efecto 3D */
+}
+
+header:hover {
+    background-color: #ff510012; /* Color de fondo original */
+    transition: background-color 0.3s ease; /* Agregamos transición para el cambio de fondo */
+}
+
+/* Efecto al pasar el cursor (hover) */
+h1:hover {
+    color: #FF6F3C; /* Un color cálido similar al gradiente, en un tono anaranjado */
+    transform: scale(1.1); /* Aumenta ligeramente el tamaño del texto */
+    cursor: pointer;
+    text-shadow: 3px 3px 5px rgb(255, 255, 255), -3px -3px 5px rgba(0, 0, 0, 0.1); /* Sombra de texto para un efecto 3D */
+}
+
+/* Cambiar el color de fondo del header cuando se pase el cursor sobre el h1 */
+h1:hover ~ header {
+    background-color: #ce6831; /* Nuevo color de fondo para el header */
+}
+
+/* Sombra en el texto */
+h1::before {
+    content: ''; /* Necesario para crear el pseudo-elemento */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+   z-index: -1; /* Coloca la sombra detrás del texto */
+    filter: blur(8px); /* Desenfoca la sombra para un efecto más suave */
+}
+
+/* H2: Estilo para "Menú" */
+h2 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2.5em;
+    color: #CAF0F8; /* Contraste claro sobre el header */
+    text-shadow: 2px 2px 5px rgb(0, 0, 0); /* Sombra para profundidad */
+    text-align: center;
+    margin: 20px 0;
+    padding-bottom: 10px;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5); /* Línea decorativa */
+    letter-spacing: 2px; /* Espaciado para elegancia */
+}
+
+/* H3: Estilo para "Mariscos" */
+h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 2em;
+    color: #CAF0F8; /* Tono más claro del degradado */
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.4); /* Sombra más sutil */
+    text-align: left;
+    margin: 15px 0;
+    padding-left: 15px;
+    line-height: 1.5; /* Espaciado entre líneas */
+}
+
+main {
+    display: flex;
+    justify-content: space-around;
+    padding: 2rem;
+}
+
+.menu, .order {
+    width: 45%;
+}
+
+.menu-category {
+    margin-bottom: 2rem;
+}
+
+.menu-category h3 {
+    color: #fafafa;
+    border-bottom: 3px solid rgba(255, 255, 255, 0.5); /* Línea decorativa */
+    margin-bottom: 0.5rem;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    margin-bottom: 0.5rem;
+    cursor: pointer;
+    background: #fff;
+}
+
+li:hover {
+    background: #f0f0f0;
+}
+
+.popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.popup-content {
+    background: #fff;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 8px;
+    width: 300px;
+}
+
+.popup-buttons {
+    margin-top: 1rem;
+}
+
+.popup-buttons button {
+    margin: 0 0.5rem;
+    padding: 0.5rem 1rem;
+}
+
+.hidden {
+    display: none;
+}
+
+.order {
+    background: linear-gradient(90deg, #0077B6, #48CAE4);
+    padding: 1rem;
+    border: 2px solid #FF6F3C;
+    border-radius: 8px;
+}
+
+#order-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.order-item-buttons {
+    margin-left: 10px;
+}
+
+.order-item-buttons button {
+    padding: 0.2rem 0.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.edit {
+    background-color: #28a745;
+    color: #fff;
+}
+
+.delete {
+    background-color: #dc3545;
+    color: #fff;
+}
+
+/* Sección de la orden */
+#order-section {
+    margin-top: 20px;
+    padding: 10px;
+    border-top: 1px solid #CAF0F8;
+    border-radius: 1 px;
+    max-width: 400px;
+    
+}
+
+#order-list {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 10px 0;
+}
+
+#order-list li {
+    margin-bottom: 5px;
+    font-size: 14px;
+    border-radius: 5px;
+}
+
+#place-order {
+    display: display-inline;
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #f9f9f9;
+    color: #000000;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.783);
+    transition: all 0.3s ease; /* Suavidad en la transición */
+}
+
+#place-order:hover {
+    background: linear-gradient(90deg, #F4A261, #E76F51);
+    color: #fff;
+    border: 2px solid #fff;
+    transform: scale(1.1);
+    /* Efecto 3D en la letra */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8), /* Sombra más cercana */
+        2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra más lejana */
+        transform: translateY(-2px); /* Leve movimiento hacia arriba */
+    transition: all 0.3s ease; /* Suavidad en la transición */
+}
+
+#place-order:hover::after {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    position: absolute; /* Posiciona el pseudo-elemento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 89, 0, 0.5); /* Color de la "luz" */
+    border-radius: 10px; /* Bordes redondeados */
+    z-index: -1; /* Coloca el pseudo-elemento debajo del contenido */
+}
+
+/* Popup de confirmación */
+#order-confirmation-popup {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    text-align: center;
+}
+
+#order-confirmation-popup.hidden {
+    display: none;
+}
+
+.popup-content{
+    background: linear-gradient(90deg, #0077B6, #00456a);
+    border: 1px solid #ffffff;
+    /* Efecto 3D en la letra */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8), /* Sombra más cercana */
+        2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra más lejana */
+}
+
+.popup-content p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.popup-content button{
+    background: linear-gradient(90deg, #F4A261, #E76F51); /* Color de fondo al pasar el cursor */
+    color: white; /* Cambia el color del texto a blanco */
+    font-weight: bold;
+    border-color: #ffffff; /* Cambia el color del borde al blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agrega sombra para un efecto elevado */
+
+    /* Efecto 3D en la letra */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8), /* Sombra más cercana */
+        2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra más lejana */
+    transform: translateY(-2px); /* Leve movimiento hacia arriba */
+    transition: all 0.3s ease; /* Suavidad en la transición */
+    border-radius: 5px;
+}
+
+.popup-content button:hover {
+    background: linear-gradient(90deg, #F4A261, #E76F51); /* Color de fondo al pasar el cursor */
+    color: white; /* Cambia el color del texto a blanco */
+    font-weight: bold;
+    border-color: #ffffff; /* Cambia el color del borde al blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agrega sombra para un efecto elevado */
+
+    /* Efecto 3D en la letra */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8), /* Sombra más cercana */
+        2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra más lejana */
+    transform: translateY(-2px); /* Leve movimiento hacia arriba */
+    transition: all 0.3s ease; /* Suavidad en la transición */
+    cursor: pointer;
+}
+
+
+/* Efecto de luz al pasar el cursor */
+.popup-content button:hover::after {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    position: absolute; /* Posiciona el pseudo-elemento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 89, 0, 0.5); /* Color de la "luz" */
+    border-radius: 10px; /* Bordes redondeados */
+    z-index: -1; /* Coloca el pseudo-elemento debajo del contenido */
+}
+
+#confirm-order {
+    padding: 10px 20px;
+    background-color: #ff5900;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+#confirm-order:hover {
+    transform: scale(1.2);
+}
+
+#total{
+    font-size:x-large;
+    color: #fff;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.967), -3px -3px 5px rgba(0, 0, 0, 0.1); /* Sombra de texto para un efecto 3D */
+}
+
+#ordertext{
+    border-bottom: 2px solid #CAF0F8;
+    color: #ffffff;
+}
+
+#add-to-order{
+    margin-top: 20px;
+    height: 30px;
+}
+
+ul {
+    position: relative; /* Establece el contenedor como referencia para el posicionamiento absoluto */
+    padding: 0; /* Elimina el padding por defecto */
+    list-style: none; /* Elimina los puntos de la lista */
+}
+
+ul li {
+    position: relative; /* Posicionamiento para asegurar control del contenido */
+    padding: 10px 50px 10px 10px; /* Espacio para el contenido del texto y el botón */
+    border-bottom: 1px solid #ccc; /* Línea divisoria opcional */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* Sombra suave para profundidad */
+}
+
+button#ver-galeria {
+    position: absolute; /* Permite mover el botón relativo al contenedor */
+    right: 10px; /* Posiciona el botón a 10px del borde derecho */
+    transform: translateY(-50%); /* Ajusta la posición para un centrado perfecto */
+    padding: 5px 10px; /* Espaciado interno del botón */
+    background: linear-gradient(90deg, #0077B6, #00456a); /* Color de fondo del botón */
+    color: #fff; /* Color del texto */
+    border: none; /* Sin bordes */
+    border-radius: 5px; /* Bordes redondeados */
+    cursor: pointer; /* Cambia el cursor al pasar sobre el botón */
+    overflow: visible; /* Permite que el sol salga fuera del botón */
+    transition: transform 0.3s ease;
+}
+
+button#ver-galeria:hover {
+    background-color: #a93c02; /* Cambia el color al pasar el cursor */
+    transform: translateY(-50%) translateX(-10px); /* Mueve solo hacia la izquierda sin afectar la posición vertical */
+}
+
+/* Sol estilo caricatura */
+button#ver-galeria::before {
+    content: ''; /* Representa el sol */
+    position: absolute;
+    top: 50%; /* Centrado verticalmente con respecto al botón */
+    left: -30px; /* El sol se mueve al lado izquierdo del botón */
+    transform: translateY(-50%) scale(0); /* Asegura el centrado vertical y oculta inicialmente el sol */
+    width: 25px; /* Tamaño del sol, ajustado al botón */
+    height: 25px; /* Tamaño del sol */
+    background: radial-gradient(circle, #FFD166, #F4A261); /* Gradiente cálido estilo sol */
+    border-radius: 50%; /* Forma circular */
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.8); /* Resplandor alrededor del sol */
+    z-index: -1; /* Asegura que el sol esté completamente detrás del botón */
+    opacity: 0; /* Sol inicialmente invisible */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Efecto al pasar el cursor (hover) */
+button#ver-galeria:hover::before {
+    opacity: 1; /* Hace visible el sol */
+    transform: translateY(-50%) scale(1); /* Hace que el sol aparezca centrado verticalmente */
+}
+
+/* Diseño caricaturesco: rayos del sol */
+button#ver-galeria::after {
+    content: ''; /* Agrega los rayos del sol */
+    position: absolute;
+    top: 50%;
+    left: -45px; /* Los rayos también salen desde el lado izquierdo */
+    transform: translateY(-50%) scale(0);
+    width: 50px; /* Longitud de los rayos */
+    height: 50px; /* Longitud de los rayos */
+    background: transparent;
+    border-left: 3px solid #FFD166; /* Rayo a la izquierda */
+    border-top: 3px solid #FFD166; /* Rayo en la parte superior */
+    border-radius: 50%;
+    box-shadow: 0 0 10px rgba(255, 193, 7, 0.8); /* Efecto de resplandor para los rayos */
+    z-index: -1;
+    opacity: 0; /* Ocultos inicialmente */
+    transition: transform 0.5s ease, opacity 0.5s ease;
+}
+
+/* Muestra los rayos del sol al pasar el cursor */
+button#ver-galeria:hover::after {
+    opacity: 1; /* Hace visibles los rayos */
+    transform: translateY(-50%) scale(1); /* Hace que los rayos se expandan */
+}
+
+
+
+
+
+
+/* Carrusel */
+.carousel {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.carousel-content {
+    position: relative;
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.carousel-images img {
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.carousel-buttons {
+    margin-top: 10px;
+}
+
+.carousel-buttons button {
+    padding: 10px 20px;
+    margin: 0 10px;
+    background-color: #ff5900;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+.carousel-buttons button:hover {
+    background-color: #a93c02;
+}
+
+.close-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 18px;
+}
+
+.close-button:hover {
+    background-color: darkred;
+}
+
+
+
+/*FLECHAS DE MENU*/
+.menu-category h3 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Espacio entre el texto y las flechas */
+    font-size: 1.5em; /* Ajusta según tus necesidades */
+    margin: 0;
+}
+
+.arrow {
+    background: none;
+    border: none;
+    font-size: 1.2em; /* Tamaño de la flecha */
+    cursor: pointer;
+    color: #00456a;/* Color claro y transparente */
+    padding: 5px;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra sutil para efecto de profundidad */
+    transition: all 0.3s ease; /* Efecto suave en los cambios */
+}
+
+.arrow:hover {
+    color: #ff7300; /* Color claro del texto */
+    background: none; /* No mostrar el fondo al hacer hover */
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6); /* Sombra más difusa para mejorar visibilidad */
+    transform: scale(1.2); /* Pequeño efecto de zoom */
+}
+
+.arrow:focus {
+    outline: none; /* Quita el borde predeterminado */
+}
+
+
+
+
+/*ESTILOS PARA LOS LI DE CADA PRODUCTO*/
+li {
+    padding: 1rem; /* Un poco de espacio interno */
+    border: 2px solid #ccc; /* Borde gris claro */
+    border-radius: 10px; /* Bordes redondeados */
+    background-color: #f9f9f9; /* Color de fondo suave */
+    transition: all 0.3s ease; /* Suaviza los cambios */
+    margin-bottom: 1rem; /* Espacio entre los productos */
+    cursor: pointer; /* Muestra el cursor como puntero */
+}
+
+/* Estilo al pasar el cursor (hover) */
+li:hover {
+    background: linear-gradient(90deg, #F4A261, #E76F51); /* Color de fondo al pasar el cursor */
+    color: white; /* Cambia el color del texto a blanco */
+    font-weight: bold;
+    border-color: #ffffff; /* Cambia el color del borde al blanco */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Agrega sombra para un efecto elevado */
+
+    /* Efecto 3D en la letra */
+    text-shadow: 
+        1px 1px 2px rgba(0, 0, 0, 0.8), /* Sombra más cercana */
+        2px 2px 4px rgba(0, 0, 0, 0.6); /* Sombra más lejana */
+    transform: translateY(-2px); /* Leve movimiento hacia arriba */
+    transition: all 0.3s ease; /* Suavidad en la transición */
+}
+
+
+/* Efecto de luz al pasar el cursor */
+li:hover::after {
+    content: ''; /* Necesario para que el pseudo-elemento se muestre */
+    position: absolute; /* Posiciona el pseudo-elemento */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 89, 0, 0.5); /* Color de la "luz" */
+    border-radius: 10px; /* Bordes redondeados */
+    z-index: -1; /* Coloca el pseudo-elemento debajo del contenido */
+}
+
+
+
+
+
+/* Para pantallas menores a 768px (tablets y móviles) */
+@media (max-width: 768px) {
+    main {
+        display: block; /* Apilamos las secciones verticalmente */
+        padding: 1rem; /* Ajusta el espacio interno general */
+        text-align: center; /* Centra visualmente el contenido */
+    }
+
+    .menu, .order {
+        width: 90%; /* Las secciones ocupan el 90% del ancho disponible */
+        margin: 0 auto 20px auto; /* Centramos y añadimos margen inferior */
+    }
+}
+
+/* Para pantallas menores a 480px (móviles más pequeños) */
+@media (max-width: 480px) {
+    .menu, .order {
+        width: 90%; /* Ajusta el ancho para que ocupe un 90% del contenedor */
+        margin: 0 auto 30px auto; /* Esto asegura que el contenido esté centrado y haya márgenes iguales a ambos lados */
+        padding: 1rem; /* Espaciado interno adicional */
+    }
+}
+
+
+#nmesa{
+    font-size: large;
+    color: #fff;
+    text-shadow: 3px 3px 5px rgb(0, 0, 0), -3px -3px 5px rgba(0, 0, 0, 0.1); /* Sombra de texto para un efecto 3D */
+}

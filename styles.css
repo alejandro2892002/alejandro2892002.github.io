@@ -1,0 +1,201 @@
+/* Estilo General */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(45deg, #0077B6, #00B4D8, #091214, #028090);
+    background-size: 300% 300%;
+    animation: gradientAnimation 8s ease infinite;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    height: 100vh;
+    overflow: hidden;
+    text-align: center;
+    position: relative;
+    flex-direction: column;
+}
+
+/* Animación de fondo */
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+.welcome-container {
+    position: relative;
+    text-align: center;
+    color: white;
+    z-index: 1;
+    align-self: center;
+}
+
+/* Importar fuente personalizada */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand:wght@400;500;700&display=swap');
+
+/* Estilos 3D para los textos */
+.welcome-text h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    margin: 20px 0;
+    margin-top: 50px;
+    color: #FFFFFF; /* Blanco intenso para mayor contraste */
+    font-family: 'Pacifico', cursive; /* Fuente distintiva */
+    text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.8),
+                 5px 5px 20px rgba(0, 119, 182, 0.9), /* Reflejo azul del mar */
+                 3px 3px 10px rgba(0, 180, 216, 0.7); /* Toque turquesa */
+    animation: slideUp 1.5s ease-out;
+}
+
+.welcome-text p {
+    font-size: 2.5rem; /* Aumento del tamaño */
+    margin-bottom: 30px;
+    margin-top: 50px;
+    color: #F4F4F4; /* Blanco suave, ligeramente gris para mayor visibilidad */
+    font-family: 'Quicksand', sans-serif; /* Fuente moderna y legible */
+    opacity: 1; /* Eliminar opacidad para mayor visibilidad */
+    text-shadow: 4px 4px 15px rgba(0, 0, 0, 0.8), /* Sombra oscura */
+                 5px 5px 18px rgba(0, 119, 182, 0.8), /* Sombra marina más prominente */
+                 3px 3px 12px rgba(0, 180, 216, 0.7); /* Sombra turquesa más suave */
+    animation: fadeIn 2s ease-in-out;
+}
+
+/* Botón estilizado */
+#enter-button,
+#view-menu-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(90deg, #0077B6, #00456a);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    border-radius: 30px;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+    margin-top: 50px;
+    margin-bottom: 100px;
+}
+
+#view-menu-button {
+    margin-left: 20px; /* Separar un poco el nuevo botón */
+}
+
+#enter-button:hover,
+#view-menu-button:hover {
+    background-color: #FF4500;
+    transform: translateY(-5px);
+    box-shadow: 0 4px 6px #aadde7;
+}
+
+#enter-button:active,
+#view-menu-button:active {
+    transform: translateY(2px);
+}
+
+/* Carrusel de platillos */
+.carousel {
+    display: flex;
+    width: 100%;
+    height: 200px;
+    position: absolute;
+    bottom: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    animation: carouselMove 20s linear infinite;
+}
+
+.carousel-item {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 10px;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Sol animado */
+.sun {
+    position: absolute;
+    top: -150px;
+    left: -100px;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255, 255, 0, 0.8), rgba(255, 165, 0, 0.7));
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(255, 165, 0, 0.6);
+    animation: sunAnimation 3s ease-in-out infinite;
+    z-index: -2;
+}
+
+@keyframes sunAnimation {
+    0% { transform: translateY(20px); }
+    50% { transform: translateY(10px); }
+    100% { transform: translateY(20px); }
+}
+
+/* Media Queries */
+@media (max-width: 768px) {
+    .welcome-text h1 { font-size: 2.5rem; }
+    .welcome-text p { font-size: 1rem; margin-bottom: 20px; }
+    #enter-button,
+    #view-menu-button { padding: 12px 24px; font-size: 1rem; }
+    .sun { width: 250px; height: 250px; top: -130px; left: -80px; }
+    .carousel-item { width: 150px; height: 150px; }
+}
+
+@media (max-width: 480px) {
+    .welcome-text h1 { font-size: 2rem; }
+    .welcome-text p { font-size: 0.9rem; margin-bottom: 15px; }
+    #enter-button,
+    #view-menu-button { padding: 10px 20px; font-size: 0.9rem; }
+    .sun { width: 200px; height: 200px; top: -100px; left: -60px; }
+    .carousel-item { width: 120px; height: 120px; }
+}
+
+/* Carrusel de platillos */
+.carousel {
+    display: flex;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.carousel-track {
+    display: flex;
+    animation: carouselMove 10s linear infinite; /* Animación continua */
+}
+
+.carousel-item {
+    flex: 0 0 auto; /* No permitir que las imágenes se reduzcan */
+    width: 200px;
+    height: 200px;
+    margin: 0 10px;
+}
+
+.carousel-item img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+/* Animación del carrusel */
+@keyframes carouselMove {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
