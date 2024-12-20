@@ -1,3 +1,12 @@
+/* Aplica box-sizing a todos los elementos */
+* {
+    box-sizing: border-box;
+  }
+  
+  /* Opcional: hereda el box-sizing para elementos pseudo (before y after) */
+  *:before, *:after {
+    box-sizing: inherit;
+  }
 
 body {
     font-family: Arial, sans-serif;
@@ -616,35 +625,68 @@ button#ver-galeria:hover::after {
 
 
 
+
+
 /*FLECHAS DE MENU*/
+/* Estilo de texto con flechas en .menu-category h3 */
 .menu-category h3 {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* Espacio entre el texto y las flechas */
-    font-size: 1.5em; /* Ajusta según tus necesidades */
-    margin: 0;
+    display: flex; /* Coloca el texto y las flechas en línea */
+    align-items: center; /* Alinea verticalmente el contenido */
+    justify-content: space-between; /* Espacio uniforme entre texto y flechas */
+    font-size: 1.5em; /* Tamaño del texto */
+    margin: 0; /* Elimina márgenes externos */
+    padding: 0 10px; /* Espaciado interno (opcional) */
 }
 
+/* Estilo base para las flechas */
 .arrow {
-    background: none;
-    border: none;
-    font-size: 1.2em; /* Tamaño de la flecha */
-    cursor: pointer;
-    color: #00456a;/* Color claro y transparente */
-    padding: 5px;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra sutil para efecto de profundidad */
-    transition: all 0.3s ease; /* Efecto suave en los cambios */
+    display: inline-block; /* Asegura consistencia en el tamaño */
+    background: none; /* Fondo transparente */
+    border: none; /* Sin bordes */
+    font-size: 1.5em; /* Tamaño uniforme de la flecha, ahora más grande */
+    color: #00456a; /* Color inicial de las flechas */
+    padding: 8px; /* Espaciado interno ligeramente mayor */
+    cursor: pointer; /* Cambia el cursor a "mano" */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5); /* Sombra para profundidad */
+    transition: all 0.3s ease; /* Transiciones suaves */
 }
 
+/* Hover para interacción */
 .arrow:hover {
-    color: #ff7300; /* Color claro del texto */
-    background: none; /* No mostrar el fondo al hacer hover */
-    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6); /* Sombra más difusa para mejorar visibilidad */
-    transform: scale(1.2); /* Pequeño efecto de zoom */
+    color: #ff7300; /* Cambia el color de las flechas al pasar el mouse */
+    text-shadow: 1px 1px 4px rgba(255, 255, 255, 0.6); /* Más profundidad */
+    transform: scale(1.3); /* Efecto de zoom ligeramente mayor */
 }
 
+/* Enfoque para accesibilidad */
 .arrow:focus {
     outline: none; /* Quita el borde predeterminado */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5); /* Resalta con sombra */
+}
+
+/* Ajustes para pantallas pequeñas */
+@media (max-width: 768px) {
+    .menu-category h3 {
+        font-size: 1.3em; /* Ajusta el tamaño del texto */
+        padding: 0 8px; /* Reduce el espacio interno */
+    }
+
+    .arrow {
+        font-size: 1.5em; /* Ajusta el tamaño de las flechas */
+        padding: 6px; /* Reduce el relleno interno */
+    }
+}
+
+@media (max-width: 480px) {
+    .menu-category h3 {
+        font-size: 1.1em; /* Ajusta aún más el tamaño del texto */
+        padding: 0 5px; /* Espaciado interno reducido */
+    }
+
+    .arrow {
+        font-size: 1.5em; /* Tamaño de las flechas ligeramente menor */
+        padding: 5px; /* Espaciado interno reducido */
+    }
 }
 
 
